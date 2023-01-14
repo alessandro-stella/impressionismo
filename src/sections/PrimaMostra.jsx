@@ -80,7 +80,7 @@ export default function PrimaMostra({ start }) {
                 {indexes.map((index) => (
                     <img
                         key={index}
-                        src={`/src/assets/primaMostra/primaMostra${index}.jpg`}
+                        src={`/src/assets/primaMostra${index}.jpg`}
                         className={`primaMostra${index} shadow-xl`}
                         style={{
                             width: "30%",

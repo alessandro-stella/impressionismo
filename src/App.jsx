@@ -16,10 +16,6 @@ function App() {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [startAnimation, setStartAnimation] = useState(0);
 
-    useEffect(() => {
-        console.log({ startAnimation });
-    }, [startAnimation]);
-
     function handleChangeIndex(value) {
         if (currentIndex + value >= 0 && currentIndex + value <= 7)
             setCurrentIndex((currentIndex) => currentIndex + value);
