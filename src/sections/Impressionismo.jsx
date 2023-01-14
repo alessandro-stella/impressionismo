@@ -1,23 +1,34 @@
 import anime from "animejs";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 export default function Impressionismo({ start }) {
     useEffect(() => {
         if (start) {
             startAnimations();
+        } else {
+            removeStyle(impressShadow, impressTitle, impressSubtitle);
         }
     }, [start]);
 
+    const impressShadow = useRef();
+    const impressTitle = useRef();
+    const impressSubtitle = useRef();
+
+    function removeStyle(...args) {
+        for (const element of args)
+            element.current.style.removeProperty("opacity");
+    }
+
     function startAnimations() {
         anime({
-            targets: ".impresShadow",
+            targets: impressShadow.current,
             opacity: [0, 1],
             easing: "easeInOutQuad",
             duration: 1000,
         });
 
         anime({
-            targets: ".impressTitle",
+            targets: impressTitle.current,
             opacity: [0, 1],
             translateY: [-20, 0],
             easing: "easeInOutQuad",
@@ -25,7 +36,7 @@ export default function Impressionismo({ start }) {
         });
 
         anime({
-            targets: ".impressSubtitle",
+            targets: impressSubtitle.current,
             opacity: [0, 1],
             translateY: [-20, 0],
             easing: "easeInOutQuad",
@@ -35,17 +46,23 @@ export default function Impressionismo({ start }) {
     }
 
     return (
-        <div className="bg-amber-100 h-screen w-full relative grid place-content-center overflow-hidden custom-image background-impressionismo">
+        <div className="relative grid w-full h-screen overflow-hidden bg-amber-100 place-content-center custom-image background-impressionismo">
             <div
                 className={`absolute w-full h-full top-0 left-0 flex flex-col items-center justify-center ${
                     start ? "" : "hidden"
                 }`}>
-                <div className="absolute right-0 top-0 bg-[#00000030] h-full w-full impresShadow"></div>
+                <div
+                    className="opacity-0 absolute right-0 top-0 bg-[#00000030] h-full w-full"
+                    ref={impressShadow}></div>
 
-                <div className="text-[8rem] font-bold uppercase h-fit text-white drop-shadow-xl impressTitle mb-8">
+                <div
+                    className="opacity-0 text-[8rem] font-bold uppercase h-fit text-white drop-shadow-xl mb-8"
+                    ref={impressTitle}>
                     Impressionismo
                 </div>
-                <div className="impressSubtitle text-2xl text-white font-bold drop-shadow-sm mb-20">
+                <div
+                    className="opacity-0 mb-20 text-2xl font-bold text-white drop-shadow-sm"
+                    ref={impressSubtitle}>
                     La poesia della pittura: un nuovo modo di esprimere la
                     bellezza
                 </div>

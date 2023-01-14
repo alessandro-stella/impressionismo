@@ -1,20 +1,24 @@
 import { useState } from "react";
 
-import Impressionismo from "./sections/Impressionismo";
-import VilleLumiere from "./sections/VilleLumiere";
+import anime from "animejs";
+import { useEffect } from "react";
+import MoveButton from "./MoveButton";
 import CaffeGuerbois from "./sections/CaffeGuerbois";
 import ColoreLocale from "./sections/ColoreLocale";
+import Impressionismo from "./sections/Impressionismo";
 import Luce from "./sections/Luce";
 import NuoveFrontiere from "./sections/NuoveFrontiere";
-import StampeGiapponesi from "./sections/StampeGiapponesi";
 import PrimaMostra from "./sections/PrimaMostra";
-import { useEffect } from "react";
-import anime from "animejs";
-import MoveButton from "./MoveButton";
+import StampeGiapponesi from "./sections/StampeGiapponesi";
+import VilleLumiere from "./sections/VilleLumiere";
 
 function App() {
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [startAnimation, setStartAnimation] = useState(2);
+    const [startAnimation, setStartAnimation] = useState(0);
+
+    useEffect(() => {
+        console.log({ startAnimation });
+    }, [startAnimation]);
 
     function handleChangeIndex(value) {
         if (currentIndex + value >= 0 && currentIndex + value <= 7)
@@ -72,14 +76,14 @@ function App() {
             />
 
             <div className="absolute w-full anime-target">
-                <Impressionismo start={startAnimation === 0} />
-                <VilleLumiere start={startAnimation === 1} />
-                <CaffeGuerbois start={startAnimation === 2} />
-                <ColoreLocale start={startAnimation === 3} />
-                <Luce start={startAnimation === 4} />
-                <NuoveFrontiere start={startAnimation === 5} />
-                <StampeGiapponesi start={startAnimation === 6} />
-                <PrimaMostra start={startAnimation === 7} />
+                <Impressionismo start={startAnimation == 0} />
+                <VilleLumiere start={startAnimation == 1} />
+                <CaffeGuerbois start={startAnimation == 2} />
+                <ColoreLocale start={startAnimation == 3} />
+                <Luce start={startAnimation == 4} />
+                <NuoveFrontiere start={startAnimation == 5} />
+                <StampeGiapponesi start={startAnimation == 6} />
+                <PrimaMostra start={startAnimation} />
             </div>
 
             <MoveButton

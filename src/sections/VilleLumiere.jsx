@@ -61,7 +61,11 @@ export default function VilleLumiere({ start }) {
                 className={`absolute w-full h-full top-0 left-0 ${
                     start ? "" : "hidden"
                 }`}>
-                <img src={villeImg} className="opacity-0 w-1/2 z-0" ref={villeImage} />
+                <img
+                    src={villeImg}
+                    className="opacity-0 w-1/2 z-0"
+                    ref={villeImage}
+                />
 
                 <div
                     className="opacity-0 absolute right-0 top-0 bg-gradient-to-l from-[#00000090] to-[#00000000] h-full w-2/3"
