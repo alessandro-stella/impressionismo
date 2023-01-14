@@ -14,6 +14,7 @@ import MoveButton from "./MoveButton";
 
 function App() {
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [startAnimation, setStartAnimation] = useState(2);
 
     function handleChangeIndex(value) {
         if (currentIndex + value >= 0 && currentIndex + value <= 7)
@@ -57,12 +58,13 @@ function App() {
             targets: ".anime-target",
             top: `${-100 * currentIndex}vh`,
             easing: "easeInOutQuad",
-            duration: 1000,
+            duration: 1500,
+            complete: () => setStartAnimation(currentIndex),
         });
     }, [currentIndex]);
 
     return (
-        <div className="bg-red-500 overflow-hidden mainContainer relative">
+        <div className="overflow-hidden mainContainer relative select-none">
             <MoveButton
                 position={"top"}
                 value={-1}
@@ -70,14 +72,14 @@ function App() {
             />
 
             <div className="absolute w-full anime-target">
-                <Impressionismo />
-                <VilleLumiere />
-                <CaffeGuerbois />
-                <ColoreLocale />
-                <Luce />
-                <NuoveFrontiere />
-                <StampeGiapponesi />
-                <PrimaMostra />
+                <Impressionismo start={startAnimation === 0} />
+                <VilleLumiere start={startAnimation === 1} />
+                <CaffeGuerbois start={startAnimation === 2} />
+                <ColoreLocale start={startAnimation === 3} />
+                <Luce start={startAnimation === 4} />
+                <NuoveFrontiere start={startAnimation === 5} />
+                <StampeGiapponesi start={startAnimation === 6} />
+                <PrimaMostra start={startAnimation === 7} />
             </div>
 
             <MoveButton

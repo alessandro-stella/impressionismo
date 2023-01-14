@@ -21,3 +21,66 @@ body {
 .mainContainer::-webkit-scrollbar {
     display: none;
 }
+
+.rotated {
+    transform: rotate(180deg);
+}
+
+.arrow::before,
+.arrow::after {
+    content: "";
+    position: absolute;
+    top: 70%;
+    width: 72%;
+    height: 5px;
+    background-color: white;
+    border-radius: 100vmax;
+}
+
+.arrow::after {
+    transform: rotate(45deg);
+    left: -8%;
+}
+
+.arrow::before {
+    transform: rotate(-45deg);
+    right: -8%;
+}
+
+/*==========
+backgroundImpressionismo
+==========*/
+
+.custom-image {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.background-impressionismo {
+    background-image: url("./assets/impressionismo.jpg");
+}
+
+.background-parigi {
+    background-image: url("./assets/parigi.jpg");
+}
+
+.background-caffe {
+    background-image: url("./assets/CaffeGuerbois.jpg");
+}
+
+.background-colore {
+    background-image: url("./assets/atelier.jpg");
+}
+
+.background-luce {
+    background-image: url("./assets/luce.jpg");
+}
+
+.background-frontiere {
+    background-image: url("./assets/fotografia.jpg");
+}
+
+.background-onda {
+    background-image: url("./assets/onda.jpg");
+}
