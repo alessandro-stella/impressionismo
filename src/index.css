@@ -58,29 +58,29 @@ backgroundImpressionismo
 }
 
 .background-impressionismo {
-    background-image: url("./assets/impressionismo.jpg");
+    background-image: url("/impressionismo.jpg");
 }
 
 .background-parigi {
-    background-image: url("./assets/parigi.jpg");
+    background-image: url("/parigi.jpg");
 }
 
 .background-caffe {
-    background-image: url("./assets/CaffeGuerbois.jpg");
+    background-image: url("/CaffeGuerbois.jpg");
 }
 
 .background-colore {
-    background-image: url("./assets/atelier.jpg");
+    background-image: url("/atelier.jpg");
 }
 
 .background-luce {
-    background-image: url("./assets/luce.jpg");
+    background-image: url("/luce.jpg");
 }
 
 .background-frontiere {
-    background-image: url("./assets/fotografia.jpg");
+    background-image: url("/fotografia.jpg");
 }
 
 .background-onda {
-    background-image: url("./assets/onda.jpg");
+    background-image: url("/onda.jpg");
 }

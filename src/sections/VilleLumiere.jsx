@@ -1,6 +1,6 @@
 import anime from "animejs";
 import { useEffect, useRef } from "react";
-import villeImg from "../assets/VilleLumiere.png";
+import villeImg from "/VilleLumiere.png";
 
 export default function VilleLumiere({ start }) {
     useEffect(() => {
